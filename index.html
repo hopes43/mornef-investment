@@ -1,0 +1,2228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mornef Investments</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Yellow accent styles */
+        .yellow-accent {
+            color: #FFD700;
+        }
+
+        .yellow-border {
+            border-color: #FFD700;
+        }
+
+        .yellow-bg {
+            background-color: rgba(255, 215, 0, 0.1);
+        }
+
+        /* Updated header with yellow accent */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid #FFD700; /* Added yellow bottom border */
+        }
+
+        /* Updated navigation with yellow hover effect */
+        nav ul li a:hover {
+            color: #FFD700; /* Changed from #a8d1ff to yellow */
+        }
+
+        nav ul li a.active {
+            color: #FFD700; /* Changed from #a8d1ff to yellow */
+        }
+
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #FFD700; /* Changed from #a8d1ff to yellow */
+        }
+
+        /* Updated buttons with yellow accents */
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: #1e3c72;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid white;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #FFD700; /* Added yellow shadow */
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3); /* Enhanced with yellow */
+        }
+
+        .btn-primary {
+            background-color: #1e3c72;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border-left: 4px solid #FFD700; /* Added yellow accent border */
+        }
+
+        .btn-primary:hover {
+            background-color: #2a5298;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Added yellow glow */
+        }
+
+        /* Updated service cards with yellow accents */
+        .service-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #FFD700; /* Changed from #1e3c72 to yellow */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #1e3c72);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2); /* Added yellow to shadow */
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FFD700, #FFA500); /* Added yellow gradient */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #1e3c72;
+            font-size: 2.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3); /* Added yellow shadow */
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #FFD700; /* Changed to yellow */
+            transform: scale(1.1);
+        }
+
+        /* Updated team section with yellow accents */
+        .team-member {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #FFD700; /* Changed from #1e3c72 to yellow */
+            position: relative;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #FFD700, #1e3c72);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.15); /* Added yellow to shadow */
+        }
+
+        .member-photo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #FFD700, #FFA500); /* Added yellow gradient */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #1e3c72;
+            flex-shrink: 0;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3); /* Added yellow shadow */
+        }
+
+        .team-member .position {
+            color: #2a5298;
+            font-weight: 600;
+            margin-bottom: 0;
+            font-size: 1rem;
+            background: rgba(255, 215, 0, 0.2); /* Changed to yellow tint */
+            padding: 4px 12px;
+            border-radius: 15px;
+            display: inline-block;
+            border: 1px solid rgba(255, 215, 0, 0.3); /* Added yellow border */
+        }
+
+        /* Updated contact icons with yellow */
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #FFD700, #FFA500); /* Added yellow gradient */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #1e3c72;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3); /* Added yellow shadow */
+        }
+
+        /* Updated form focus with yellow */
+        .form-control:focus {
+            border-color: #FFD700; /* Changed from #1e3c72 to yellow */
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2); /* Changed to yellow */
+        }
+
+        /* Updated footer with yellow accent */
+        footer {
+            background-color: #1e3c72;
+            color: white;
+            padding: 50px 0 20px;
+            border-top: 3px solid #FFD700; /* Added yellow top border */
+        }
+
+        .footer-column ul li a:hover {
+            color: #FFD700; /* Changed from white to yellow */
+        }
+
+        /* Updated page headers with yellow accents */
+        .page-header {
+            background: linear-gradient(rgba(30, 60, 114, 0.9), rgba(42, 82, 152, 0.9)), 
+                        linear-gradient(45deg, transparent 70%, rgba(255, 215, 0, 0.1) 100%); /* Added yellow overlay */
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #1e3c72);
+        }
+
+        /* Updated services list with yellow checkmarks */
+        .services-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #FFD700; /* Changed from #a8d1ff to yellow */
+            font-weight: bold;
+        }
+
+        /* Updated clientele items with yellow accents */
+        .clientele-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #FFD700; /* Changed from #1e3c72 to yellow */
+            transition: all 0.3s;
+        }
+
+        .clientele-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2); /* Added yellow to shadow */
+        }
+
+        /* Updated mission/vision cards with yellow accents */
+        .mv-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 4px solid #FFD700; /* Added yellow border */
+            transition: all 0.3s;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.15); /* Added yellow to shadow */
+        }
+
+        .mv-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #FFD700; /* Added yellow color */
+        }
+
+        /* Updated location cards with yellow accents */
+        .location-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 4px solid #FFD700; /* Added yellow border */
+            transition: all 0.3s;
+        }
+
+        .location-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.15); /* Added yellow to shadow */
+        }
+
+        .location-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #FFD700; /* Changed from #1e3c72 to yellow */
+        }
+
+        /* Updated info cards with yellow accents */
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #FFD700; /* Added yellow border */
+            transition: all 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.15); /* Added yellow to shadow */
+        }
+        
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 50px;
+            width: auto;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        nav ul li a:hover {
+            color: #a8d1ff;
+        }
+        
+        nav ul li a.active {
+            color: #a8d1ff;
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #a8d1ff;
+        }
+        
+        /* Page content area */
+        .page-content {
+            min-height: calc(100vh - 200px);
+        }
+        
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Image Styles */
+        .content-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .content-image:hover {
+            transform: scale(1.02);
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .image-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .image-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #1e3c72);
+            z-index: 2;
+        }
+        
+        /* HOME PAGE STYLES */
+        .hero {
+            background: linear-gradient(rgba(30, 60, 114, 0.85), rgba(42, 82, 152, 0.85)), url('https://i.postimg.cc/H8jZHwBk/foresite.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: #1e3c72;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #1e3c72;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #e6f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #1e3c72;
+            font-size: 2.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            background-color: #1e3c72;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #1e3c72;
+            font-size: 1.4rem;
+        }
+        
+        .service-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        .introduction {
+            padding: 80px 0;
+            background-color: #f0f5ff;
+        }
+        
+        .introduction-content {
+            text-align: center;
+        }
+        
+        .introduction-content p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .vision {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .vision-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .vision-text {
+            flex: 1;
+        }
+        
+        .vision-text h2 {
+            font-size: 2.2rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        
+        .vision-text p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .vision-text h3 {
+            font-size: 1.5rem;
+            color: #1e3c72;
+            margin: 25px 0 15px 0;
+        }
+        
+        .vision-image {
+            flex: 1;
+            background-color: #d4e3ff;
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e3c72;
+            font-weight: bold;
+            overflow: hidden;
+        }
+        
+        .vision-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .btn-primary {
+            background-color: #1e3c72;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2a5298;
+        }
+        
+        /* SERVICES PAGE STYLES */
+        .page-header {
+            background: linear-gradient(rgba(30, 60, 114, 0.9), rgba(42, 82, 152, 0.9));
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-list {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            text-align: left;
+            display: inline-block;
+        }
+        
+        .services-list ul {
+            columns: 2;
+            column-gap: 40px;
+            list-style: none;
+        }
+        
+        .services-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .services-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #a8d1ff;
+            font-weight: bold;
+        }
+        
+        .clientele-section {
+            background: #f0f5ff;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .clientele-section h3 {
+            color: #1e3c72;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+        
+        .clientele-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: left;
+        }
+        
+        .clientele-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #1e3c72;
+        }
+        
+        .services-info {
+            padding: 60px 0;
+            background-color: #f0f5ff;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        /* ABOUT PAGE STYLES */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2.2rem;
+            color: #1e3c72;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .about-image {
+            flex: 1;
+            background-color: #d4e3ff;
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e3c72;
+            font-weight: bold;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .mission-vision {
+            padding: 80px 0;
+            background-color: #f0f5ff;
+        }
+        
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .mv-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .mv-card h3 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .mv-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        /* NEW: Statistics Section Styles */
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-section .section-title h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .stats-section .section-title p {
+            color: #a8d1ff;
+            font-size: 1.1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #FFD700;
+            text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #e6f2ff;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* FIXED TEAM SECTION STYLES */
+        .team {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #1e3c72;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        
+        .member-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e6f0ff, #d4e3ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #1e3c72;
+            flex-shrink: 0;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-info {
+            flex: 1;
+        }
+        
+        .team-member h3 {
+            color: #1e3c72;
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .team-member .position {
+            color: #2a5298;
+            font-weight: 600;
+            margin-bottom: 0;
+            font-size: 1rem;
+            background: #e6f0ff;
+            padding: 4px 12px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        
+        .team-member p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1rem;
+            text-align: left;
+        }
+        
+        /* CONTACT PAGE STYLES */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            color: #1e3c72;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #e6f0ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #1e3c72;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-detail-content h4 {
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #1e3c72;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(30, 60, 114, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .locations {
+            padding: 80px 0;
+            background-color: #f0f5ff;
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .location-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .location-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #1e3c72;
+        }
+        
+        .location-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1e3c72;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #a8d1ff;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a8d1ff;
+        }
+        
+        /* NEW: Team hierarchy styles */
+        .team-hierarchy {
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .team-member.active .team-hierarchy {
+            display: block;
+        }
+        
+        .hierarchy-list {
+            list-style: none;
+            margin-top: 15px;
+            padding-left: 20px;
+            border-left: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .hierarchy-item {
+            margin-bottom: 12px;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-left: 3px solid #FFD700;
+        }
+        
+        .hierarchy-item h4 {
+            color: #1e3c72;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+        
+        .hierarchy-item .position {
+            color: #2a5298;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .hierarchy-item .description {
+            color: #555;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+        
+        .toggle-hierarchy {
+            background: transparent;
+            border: none;
+            color: #1e3c72;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 15px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .toggle-hierarchy:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+        
+        .toggle-hierarchy .icon {
+            transition: transform 0.3s;
+        }
+        
+        .team-member.active .toggle-hierarchy .icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .vision-content, .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .hero h2, .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .vision-image, .about-image {
+                height: 300px;
+                margin-top: 30px;
+            }
+            
+            .service-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .services-list ul {
+                columns: 1;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .member-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .member-info {
+                text-align: center;
+            }
+
+            /* Stats responsive */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .stat-card {
+                padding: 30px 15px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stat-icon {
+                font-size: 2.5rem;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://i.postimg.cc/g0dF4rD9/Mornef.png" alt="Mornef Logo" class="logo-img">
+                <h1>Mornef Investments Pvt</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a class="nav-link active" data-page="home">Home</a></li>
+                    <li><a class="nav-link" data-page="services">Services</a></li>
+                    <li><a class="nav-link" data-page="about">About</a></li>
+                    <li><a class="nav-link" data-page="contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Content Area -->
+    <div class="page-content">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <!-- Hero Section -->
+            <section class="hero" id="home-section">
+                <div class="container">
+                    <h2>MORNEF INVESTMENTS (PVT)LTD</h2>
+                    <p>Land developing company majoring in civil engineering and infrastructural development of residential land in Zvishavane, Gwanda and Beitbridge in Zimbabwe.</p>
+                    <a class="btn nav-link" data-page="services">Get Started</a>
+                </div>
+            </section>
+
+            <!-- Introduction Section -->
+            <section class="introduction" id="introduction">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>AN INSIGHT INTO MORNEF INVESTMENTS (PVT) LTD</h2>
+                        <p>MORNEF Investments (PVT) Ltd was incorporated in Zvishavane in 2012 as a
+                        registered Building, Civil and Structural Engineering Services Company.<br><br>
+
+                        MORNEF Investments (PVT) Ltd is in the highest grading with no upper limit in the
+                        value of works in the Public Sector that can be contracted to a contractor. The
+                        company is a registered member of the National Employment Council for the
+                        Construction Industries Zimbabwe. It is affiliated to the Construction Industry
+                        Federation of Zimbabwe (CIFOZ).<br><br>
+
+                        The company, with an asset base that includes US $2 million worth of immovable
+                        assets and US $1.2 million worth of plant and equipment and highly qualified and
+                        experienced personnel, offers quality, timeous and cost effective services in the
+                        Construction and Civil Engineering Industry.</p>
+                    </div>
+                    
+                    <!-- Project Images Section -->
+                    <div class="image-grid">
+                        <div class="image-card">
+                            <img src="https://i.postimg.cc/7JbsD3mz/dig.png" alt="Construction Equipment" class="content-image">
+                        </div>
+                        <div class="image-card">
+                            <img src="https://i.postimg.cc/H8jZHwBk/foresite.jpg" alt="Construction Site" class="content-image">
+                        </div>
+                        <div class="image-card">
+                            <img src="https://i.postimg.cc/T5h7GVCx/support-black-construction-professionals-better-industry.jpg" alt="Construction Team" class="content-image">
+                        </div>
+                    </div>
+                    
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">🏗️</div>
+                            <h3>Land Developing</h3>
+                            <p>Comprehensive land development services including surveying, planning, and development of residential and commercial properties across Zimbabwe's major towns and cities.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">🏛️</div>
+                            <h3>Civil Engineering</h3>
+                            <p>Professional civil engineering services including structural design, infrastructure planning, and project management for sustainable urban and rural development.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">🛣️</div>
+                            <h3>Infrastructural Development</h3>
+                            <p>Complete infrastructure solutions including roads, drainage systems, water supply, and utility services for residential, commercial, and industrial areas.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vision Section -->
+            <section class="vision" id="vision">
+                <div class="container">
+                    <div class="vision-content">
+                        <div class="vision-text">
+                            <h2>COMPANY VISION</h2>
+                            <p>MORNEF Investments (PVT) Ltd seeks to be the best infrastructural developer within Zimbabwe and the world over.</p>
+                            
+                            <h3>COMPANY MISSION</h3>
+                            <p>To provide quality and cost effective building and civil engineering services to individual clients, mines, corporate bodies, local authorities and the central government.</p>
+                            
+                            <h3>COMPANY VALUES (H.A.C.T)</h3>
+                            <p>Hard Work | Accountability | Customer Care | Team Work</p>
+                            
+                            <a class="btn-primary nav-link" data-page="about">Learn More</a>
+                        </div>
+                        <div class="vision-image">
+                            <img src="https://i.postimg.cc/g0dF4rD9/Mornef.png" alt="Construction Site" class="content-image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact" id="contact-preview">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Contact Us</h2>
+                        <p>Get in touch with us to discuss how we can turn your visions into reality.</p>
+                    </div>
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <h3>Get In Touch</h3>
+                            <div class="contact-details">
+                                <div class="contact-detail">
+                                    <div class="contact-icon">📍</div>
+                                    <div>
+                                        <p>Zvishavane </p>
+                                        <p>Gwanda </p>
+                                        <p>Beitbridge</p>
+                                    </div>
+                                </div>
+                                <div class="contact-detail">
+                                    <div class="contact-icon">📞</div>
+                                    <div>
+                                        <p>0772 469 779 <br> 0716 451 356 <br>051-3428</p>
+                                    </div>
+                                </div>
+                                <div class="contact-detail">
+                                    <div class="contact-icon">✉️</div>
+                                    <div>
+                                        <p>mornefinvest@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <form>
+                                <div class="form-group">
+                                    <label for="home-name">Name</label>
+                                    <input type="text" id="home-name" class="form-control" placeholder="Your Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="home-email">Email</label>
+                                    <input type="email" id="home-email" class="form-control" placeholder="Your Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="home-subject">Subject</label>
+                                    <input type="text" id="home-subject" class="form-control" placeholder="Subject">
+                                </div>
+                                <div class="form-group">
+                                    <label for="home-message">Message</label>
+                                    <textarea id="home-message" class="form-control" placeholder="Your Message"></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Services Page -->
+        <div id="services" class="page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="container">
+                    <h1>Our Services</h1>
+                    <p>We offers the following developmental services:</p>
+                    <div class="services-list">
+                        <ul>
+                            <li>Water and Sewer Reticulation</li>
+                            <li>Construction of roads</li>
+                            <li>Storm water drainage systems</li>
+                            <li>Water and Sewer treatment works</li>
+                            <li>Concrete Structures</li>
+                            <li>Structural Steel Works</li>
+                            <li>Ground and elevation water reservoirs</li>
+                            <li>Residential, industrial and commercial buildings</li>
+                            <li>Municipal roads and storm water drainage systems</li>
+                            <li>Hiring of earth moving equipment</li>
+                            <li>Construction maintenance works</li>
+                            <li>Civil and Construction consultancy</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section class="services">
+                <div class="container">
+                    <div class="clientele-section">
+                        <h3>Extensive construction and civil engineering projects were carried for:</h3>
+                        <div class="clientele-grid">
+                            <div class="clientele-item">Housing Cooperatives</div>
+                            <div class="clientele-item">Local Authorities</div>
+                            <div class="clientele-item">The Government of Zimbabwe</div>
+                            <div class="clientele-item">Private Corporate Organisations</div>
+                            <div class="clientele-item">Mines</div>
+                            <div class="clientele-item">Individuals</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Images in Services -->
+                    <div class="image-grid">
+                        <div class="image-card">
+                            <img src="https://i.postimg.cc/7JbsD3mz/dig.png" alt="Construction Equipment in Action" class="content-image">
+                        </div>
+                        <div class="image-card">
+                            <img src="https://i.postimg.cc/T5h7GVCx/support-black-construction-professionals-better-industry.jpg" alt="Professional Construction Team" class="content-image">
+                        </div>
+                    </div>
+                    
+                    <div class="section-title">
+                        <h2>Our Core Services</h2>
+                        <p>MORNEF INVESTMENTS LAND DEVELOPERS, CONSTRUCTION AND CIVIL ENGINEERS.</p>
+                    </div>
+                    
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">🏗️</div>
+                            <h3>Land Development</h3>
+                            <p>Comprehensive land development services including surveying, planning, and development of residential and commercial properties across Zimbabwe.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">🏛️</div>
+                            <h3>Civil Engineering</h3>
+                            <p>Professional civil engineering services including structural design, infrastructure planning, and project management for sustainable development.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">🛣️</div>
+                            <h3>Infrastructure Development</h3>
+                            <p>Complete infrastructure solutions including roads, drainage systems, water supply, and utility services for residential and commercial areas.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">📋</div>
+                            <h3>Construction Management</h3>
+                            <p>End-to-end construction project management ensuring quality, timely delivery, and compliance with all regulatory requirements.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">🏘️</div>
+                            <h3>Residential Development</h3>
+                            <p>Development of residential stands and housing projects with modern amenities and sustainable community planning.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">💼</div>
+                            <h3>Project Consulting</h3>
+                            <p>Expert consultation services for land development projects, feasibility studies, and regulatory compliance guidance.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Additional Info Section -->
+            <section class="services-info">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Our Approach</h2>
+                        <p>Hard Work | Accountability | Customer Care | Team Work</p>
+                    </div>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h3>Quality Assurance</h3>
+                            <p>We maintain the highest standards of quality in all our projects, ensuring durability and customer satisfaction.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Sustainable Development</h3>
+                            <p>Our projects are designed with environmental sustainability and community needs in mind.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Timely Delivery</h3>
+                            <p>We pride ourselves on completing projects within agreed timelines without compromising quality.</p>
+                        </div>
+                        <div class="info-card">
+                            <h3>Client Collaboration</h3>
+                            <p>We work closely with our clients throughout the project lifecycle to ensure their vision is realized.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="container">
+                    <h1>About Mornef Investments</h1>
+                    <p>Leading land development and civil engineering solutions in Zimbabwe</p>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="about">
+                <div class="container">
+                    <div class="about-content">
+                        <div class="about-text">
+                            <h2>Our Story</h2>
+                            <p>Mornef Investments (Pvt) Ltd is a premier land development company specializing in civil engineering and infrastructural development of residential land in Zvishavane, Gwanda, and Beitbridge, Zimbabwe.</p>
+                            <p>The company has formed Public Private Partnership (PPP) with Beitbridge Town Council, Municipality of Gwanda and Zvishavane Town Council towards enhancing economic growth, value addition & beneficiation and also the aspirations of the national economic blueprint, Zimbabwe Agenda for Sustainable Socio-Economic Transformation (ZIMASSET).</p>
+                            <p>The principal services lie under the norms of land development and is mandated to offer housing service delivery. For the organisation to achieve this mandate it has operated under a structured chassis which has different levels of multi-faceted expertise required to out-take them.</p>
+                            <a class="btn-primary nav-link" data-page="contact">Get In Touch</a>
+                        </div>
+                        <div class="about-image">
+                            <img src="https://i.postimg.cc/g0dF4rD9/Mornef.png" alt="Professional Construction Team" class="content-image">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEW: Statistics Section -->
+            <section class="stats-section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Our Achievements</h2>
+                        <p>Years of excellence in land development and civil engineering</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">📅</div>
+                            <div class="stat-number">13+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🗺️</div>
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Major Regions</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-number">$3.2M</div>
+                            <div class="stat-label">Asset Base</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mission & Vision Section -->
+            <section class="mission-vision">
+                <div class="container">
+                    <div class="mv-grid">
+                        <div class="mv-card">
+                            <div class="mv-icon">🎯</div>
+                            <h3>Our Mission</h3>
+                            <p>To provide quality and cost effective building and civil engineering services to individual clients, mines, corporate bodies, local authorities and the central government.</p>
+                        </div>
+                        <div class="mv-card">
+                            <div class="mv-icon">👁️</div>
+                            <h3>Our Vision</h3>
+                            <p>MORNEF Investments (PVT) Ltd seeks to be the best infrastructural developer within Zimbabwe and the world over.</p>
+                        </div>
+                        <div class="mv-card">
+                            <div class="mv-icon">💎</div>
+                            <h3>Our Values</h3>
+                            <p>Hard Work | Accountability | Customer Care | Team Work</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Section -->
+            <section class="team">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Company Personnel</h2>
+                        <p>In all, its key departments there are highly qualified and experienced personnel that include:</p>
+                    </div>
+                    
+                    <!-- Team Image -->
+                    <div class="image-grid">
+                        <div class="image-card">
+                            <img src="https://i.postimg.cc/T5h7GVCx/support-black-construction-professionals-better-industry.jpg" alt="Our Professional Team" class="content-image">
+                        </div>
+                    </div>
+                    
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="member-header">
+                                <div class="member-photo">👨‍💼</div>
+                                <div class="member-info">
+                                    <h3>M. Mubaiwa</h3>
+                                    <div class="position">Administration Director</div>
+                                </div>
+                            </div>
+                            <p>Administration Director with more than ten years as a head in Finance and Education fraternity. A graduate teacher majoring in Mathematics and Geography. Mr. Mubaiwa is one of the founders of MORNEF Investments. Has vast experience in the running of housing cooperatives as the Secretary since 2008 up to date.</p>
+                            
+                            <button class="toggle-hierarchy">
+                                <span>View Team</span>
+                                <span class="icon">▼</span>
+                            </button>
+                            
+                            <div class="team-hierarchy">
+                                <h4>Administration Team</h4>
+                                <ul class="hierarchy-list">
+                                    <li class="hierarchy-item">
+                                        <div class="position">Administrative Clerk</div>
+                                        <div class="description">Oversees daily administrative operations.</div>
+                                    </li>
+                                    <li class="hierarchy-item">
+                                        <div class="position">SHE Officer</div>
+                                        <div class="description">Manages Safety Health of the Enviroment and Employees.</div>
+                                    </li>
+                                    <li class="hierarchy-item">
+                                    
+                                        <div class="position">Centarl Operatives</div>
+                                        <div class="description">Handles documentation, correspondence, and office logistics.</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-header">
+                                <div class="member-photo">👨‍💼</div>
+                                <div class="member-info">
+                                    <h3>R. Nyoni</h3>
+                                    <div class="position">Marketing Director</div>
+                                </div>
+                            </div>
+                            <p>Marketing Director who specialises in projects management and Environmental Impact Assessments among other pre-requisits before running of projects, 8 Years' experience in Housing projects, tendering, valuation and final accounts. He is responsible for the day to day running of operations. He is one of the founders of MORNEF Investments (Pvt) Ltd.</p>
+                            
+                            <button class="toggle-hierarchy">
+                                <span>View Team</span>
+                                <span class="icon">▼</span>
+                            </button>
+                            
+                            <div class="team-hierarchy">
+                                <h4>Marketing Team</h4>
+                                <ul class="hierarchy-list">
+                                    <li class="hierarchy-item">
+                                        <div class="position">Marketing Manager</div>
+                                        <div class="description">Develops marketing strategies and oversees promotional activities.</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-header">
+                                <div class="member-photo">👩‍💼</div>
+                                <div class="member-info">
+                                    <h3>F. Benson</h3>
+                                    <div class="position">Finance Director</div>
+                                </div>
+                            </div>
+                            <p>Finance director who found MORNEF Investments and has been involved in the of Housing Co-operatives since 2005. A matured mother with administration experience who has seen it all in developmental projects. She is responsible for the day to day running of the administration offices.</p>
+                            
+                            <button class="toggle-hierarchy">
+                                <span>View Team</span>
+                                <span class="icon">▼</span>
+                            </button>
+                            
+                            <div class="team-hierarchy">
+                                <h4>Finance Team</h4>
+                                <ul class="hierarchy-list">
+                                    <li class="hierarchy-item">
+                                         <div class="position">Company Accountant</div>
+                                        <div class="description">Manages financial records, reporting, and compliance.</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-header">
+                                <div class="member-photo">👨‍💼</div>
+                                <div class="member-info">
+                                    <h3>E. Gumbo</h3>
+                                    <div class="position">Managing Director</div>
+                                </div>
+                            </div>
+                            <p>The managing director of Mornef Investments and one of the founders of the company. Has been in the management of housing co-operative since 2005. Mr Gumbo has vast experience in labour related issues leading to his labour consulnt provincial portfolio. He is responsible for the day to day running of operations.</p>
+                            
+                            <button class="toggle-hierarchy">
+                                <span>View Team</span>
+                                <span class="icon">▼</span>
+                            </button>
+                            
+                            <div class="team-hierarchy">
+                                <h4>Executive Team</h4>
+                                <ul class="hierarchy-list">
+                                    <li class="hierarchy-item">
+                                        <h4>All Department Directors</h4>
+                                        <div class="position">Executive Committee</div>
+                                        <div class="description">Coordinates with all department directors for strategic planning and decision-making.</div>
+                                    </li>
+                                    <li class="hierarchy-item">
+                                        <div class="position">Finance Director</div>
+                                        <div class="description">Finace.</div>
+                                    </li>
+                                    <li class="hierarchy-item">
+                                        <div class="position">Administration Director</div>
+                                        <div class="description">Admin.</div>
+                                    </li>
+                                       <li class="hierarchy-item">
+                                        <div class="position">Marketing Director</div>
+                                        <div class="description">Market.</div>
+                                    </li>
+                                       <li class="hierarchy-item">
+                                        <div class="position">Engineering Director</div>
+                                        <div class="description">Engineer.</div>
+                                    </li>
+                                       <li class="hierarchy-item">
+                                        <div class="position">Project Director</div>
+                                        <div class="description">Projects.</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-header">
+                                <div class="member-photo">👨‍💼</div>
+                                <div class="member-info">
+                                    <h3>M. Chiraya</h3>
+                                    <div class="position">Engineering Director</div>
+                                </div>
+                            </div>
+                            <p>A NUST Graduate with more than 15 years experience in construction and Civil Engineering works and projects management. An apprentice trained bricklayer, class one artisan a technician holding diplomas in Construction and technical and Vocational Education. Has worked with consulting firms that include UNICEF. Has a lot of valuable experience and to date has successfully run and completed a number of multi-million dollar contacts in civil engineering works, he is a former town engineer with a number of towns.</p>
+                            
+                            <button class="toggle-hierarchy">
+                                <span>View Team</span>
+                                <span class="icon">▼</span>
+                            </button>
+                            
+                            <div class="team-hierarchy">
+                                <h4>Engineering Team</h4>
+                                <ul class="hierarchy-list">
+                                    <li class="hierarchy-item">
+                                        <div class="position">Technician</div>
+                                        <div class="description">Leads major civil engineering projects and technical oversight.</div>
+                                    </li>
+                                    <li class="hierarchy-item">
+                                        
+                                        <div class="position">Site Agents</div>
+                                        <div class="description">Oversees on-site construction activities and quality control.</div>
+                                    </li>
+                                    <li class="hierarchy-item">
+                                       
+                                        <div class="position">Foreman</div>
+                                        <div class="description">Oversees on-site construction activities</div>
+                                    </li>
+                                    <li class="hierarchy-item">
+                                        
+                                        <div class="position">Artisans</div>
+                                        <div class="description">Works</div>
+                                    </li>
+                                     <li class="hierarchy-item">
+                                        
+                                        <div class="position">General Operatives</div>
+                                        <div class="description">General Work</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="team-member">
+                            <div class="member-header">
+                                <div class="member-photo">👨‍💼</div>
+                                <div class="member-info">
+                                    <h3>N. Phiri</h3>
+                                    <div class="position">Project Director</div>
+                                </div>
+                            </div>
+                            <p>Projects/Contracts manager, 15 years' experience, 10 years in contracts management and supervision including preparation of bills and quantities, estimating, tendering and valuation.</p>
+                            
+                            <button class="toggle-hierarchy">
+                                <span>View Team</span>
+                                <span class="icon">▼</span>
+                            </button>
+                            
+                            <div class="team-hierarchy">
+                                <h4>Project Management Team</h4>
+                                <ul class="hierarchy-list">
+                                     <li class="hierarchy-item">
+                                        <div class="position">Technician</div>
+                                        <div class="description">Leads major civil engineering projects and technical oversight.</div>
+                                    </li>
+                                    <li class="hierarchy-item">
+                                        
+                                        <div class="position">Site Agents</div>
+                                        <div class="description">Oversees on-site construction activities and quality control.</div>
+                                    </li>
+                                    <li class="hierarchy-item">
+                                       
+                                        <div class="position">Foreman</div>
+                                        <div class="description">Oversees on-site construction activities</div>
+                                    </li>
+                                    <li class="hierarchy-item">
+                                        
+                                        <div class="position">Artisans</div>
+                                        <div class="description">Works</div>
+                                    </li>
+                                     <li class="hierarchy-item">
+                                        
+                                        <div class="position">General Operatives</div>
+                                        <div class="description">General Work</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <!-- Page Header -->
+            <section class="page-header">
+                <div class="container">
+                    <h1>Contact Us</h1>
+                    <p>Get in touch with us to discuss how we can turn your visions into reality</p>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact">
+                <div class="container">
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <h3>Get In Touch</h3>
+                            <div class="contact-details">
+                                <div class="contact-detail">
+                                    <div class="contact-icon">📍</div>
+                                    <div class="contact-detail-content">
+                                        <h4>Our Locations</h4>
+                                        <p>Zvishavane<br>Gwanda<br>Beitbridge</p>
+                                    </div>
+                                </div>
+                                <div class="contact-detail">
+                                    <div class="contact-icon">📞</div>
+                                    <div class="contact-detail-content">
+                                        <h4>Phone Numbers</h4>
+                                        <p>0772 469 779<br>0716 451 356<br>051-3428</p>
+                                    </div>
+                                </div>
+                                <div class="contact-detail">
+                                    <div class="contact-icon">✉️</div>
+                                    <div class="contact-detail-content">
+                                        <h4>Email Address</h4>
+                                        <p>mornefinvest@gmail.com</p>
+                                    </div>
+                                </div>
+                                <div class="contact-detail">
+                                    <div class="contact-icon">🕒</div>
+                                    <div class="contact-detail-content">
+                                        <h4>Business Hours</h4>
+                                        <p>Monday - Friday: 8:00 AM - 4:30 PM<br>Saturday: 8:00 AM - 12:00 PM<br>Sunday: Closed</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-form">
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Your Full Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Your Email Address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" class="form-control" placeholder="Your Phone Number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" class="form-control" placeholder="Subject of Your Message">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Locations Section -->
+            <section class="locations">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Our Service Areas</h2>
+                        <p>We provide land development services across multiple locations in Zimbabwe</p>
+                    </div>
+                    
+                    <!-- Project Images in Locations -->
+                    <div class="image-grid">
+                        <div class="image-card">
+                            <img src="https://i.postimg.cc/7JbsD3mz/dig.png" alt="Construction Equipment" class="content-image">
+                        </div>
+                        <div class="image-card">
+                            <img src="https://i.postimg.cc/H8jZHwBk/foresite.jpg" alt="Construction Site" class="content-image">
+                        </div>
+                    </div>
+                    
+                    <div class="locations-grid">
+                        <div class="location-card">
+                            <div class="location-icon">🏙️</div>
+                            <h3>Zvishavane</h3>
+                            <p>No. 882 Israel Road: Zvishavane</p>
+                            <h4>Contact Number(s)</h4>
+                            <p>(+263) 775 662 400<br>(+263) 773 911 964<br>(+263) 772 770 214<br>(+263) 773 564 340<br>(+263) 772 779 469</p>
+                        </div>
+                        <div class="location-card">
+                            <div class="location-icon">🏘️</div>
+                            <h3>Gwanda</h3>
+                            <p>12 Phumulani Complex: Gwanda</p>
+                            <h4>Contact Number(s)</h4>
+                            <p>(+263) 772 779 469<br>(+263) 772 770 214<br>(+263) 773 564 340<br>(+263) 773 911 964</p>
+                        </div>
+                        <div class="location-card">
+                            <div class="location-icon">🏗️</div>
+                            <h3>Beitbridge</h3>
+                            <p>Dulibadzimu Housing Project: Beitbridge</p>
+                            <h4>Contact Number(s)</h4>
+                            <p>0286 - 23234<br>(+263) 772 779 469<br>(+263) 773 564 340<br>(+263) 773 911 964</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Mornef Investments</h3>
+                    <p>Providing state of the art development solutions across Zimbabwe.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a class="nav-link" data-page="home">Home</a></li>
+                        <li><a class="nav-link" data-page="services">Services</a></li>
+                        <li><a class="nav-link" data-page="about">About</a></li>
+                        <li><a class="nav-link" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Mornef. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            
+            // Function to show a specific page
+            function showPage(pageId) {
+                // Hide all pages
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show the selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update active navigation link
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === pageId) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+                
+                // Update URL (optional - for bookmarking)
+                history.pushState(null, null, `#${pageId}`);
+            }
+            
+            // Add click event listeners to navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                });
+            });
+            
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', function() {
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    showPage(hash);
+                } else {
+                    showPage('home');
+                }
+            });
+            
+            // Check URL hash on page load
+            const initialPage = window.location.hash.substring(1) || 'home';
+            showPage(initialPage);
+            
+            // Contact form handling
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    
+                    // Show success message
+                    alert(`Thank you ${name}! Your message has been sent successfully. We will contact you at ${email} soon.`);
+                    
+                    // Reset form
+                    this.reset();
+                });
+            }
+            
+            // Home page contact form handling
+            const homeContactForm = document.querySelector('#home .contact-form form');
+            if (homeContactForm) {
+                homeContactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form values
+                    const name = document.getElementById('home-name').value;
+                    const email = document.getElementById('home-email').value;
+                    
+                    // Show success message
+                    alert(`Thank you ${name}! Your message has been sent successfully. We will contact you at ${email} soon.`);
+                    
+                    // Reset form
+                    this.reset();
+                });
+            }
+            
+            // NEW: Team hierarchy functionality
+            const toggleButtons = document.querySelectorAll('.toggle-hierarchy');
+            
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const teamMember = this.closest('.team-member');
+                    teamMember.classList.toggle('active');
+                    
+                    // Update button text
+                    const span = this.querySelector('span:first-child');
+                    if (teamMember.classList.contains('active')) {
+                        span.textContent = 'Hide Team';
+                    } else {
+                        span.textContent = 'View Team';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
